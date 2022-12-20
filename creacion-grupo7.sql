@@ -21,5 +21,13 @@ CREATE TABLE Atletas (
     constraint atletas_uk1 unique (Nombre),
     constraint atletas_fk1 foreign key (Pais) references Paises(Cod_pais)
 );
-#CREATE TABLE Campeonatos();
+CREATE TABLE Campeonatos(
+    id_campeonato SMALLINT(255),
+    ano YEAR NOT NULL,
+    categoría VARCHAR(10) NOT NULL ,
+    continente VARCHAR(8) NOT NULL ,
+    país       CHAR(3),
+    CONSTRAINT campeonatos_pk PRIMARY KEY (id_campeonato),
+    CONSTRAINT campeonatos_fk1 FOREIGN KEY (país) REFERENCES Paises(cod_pais)
+);
 #CREATE TABLE Resultados();
