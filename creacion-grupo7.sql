@@ -16,12 +16,18 @@ CREATE TABLE Atletas (
     Id_atleta smallint(5) unsigned,
     Nombre varchar(30) not null,
     Apellido varchar(30) not null,
-    Cod_Pais char(3),
+    Cod_Pais char(3) not null,
     Anno_nacimiento date,
     Entrenador varchar(25),
     World_ranking smallint(5) unsigned,
     Continental_ranking smallint(5) unsigned,
-
+    Foto blob,
+    Biografia longtext,
+    N_Veces_Podio smallint(3) unsigned,
+    N_Victorias smallint(3) unsigned,
+    Twitter VARCHAR(30),
+    Instagram VARCHAR(30),
+    Facebook VARCHAR(30),
     constraint atletas_pk primary key (Id_atleta),
     constraint atletas_uk1 unique (Nombre),
     constraint atletas_fk1 foreign key (Cod_Pais) references Paises(Cod_Pais)
@@ -40,6 +46,5 @@ CREATE TABLE Resultados(
     id_atleta smallint(5) unsigned,
     posicion_final
 );
-GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
-SHOW FULL TABLES FROM Triatlon;
+SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
