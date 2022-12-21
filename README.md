@@ -1,9 +1,18 @@
 # Proyecto 01 - Grupo 07
-## Instalacíón
+
+### Indice
+[Instalación](#instalación)  
+[Usuarios](#usuarios)  
+[Diseño](#diseño)  
+[Conexión](#conexión)  
+[Conclusión](#conclusiones)  
+[Integrantes](#integrantes)  
+
+## Instalación
     
-![](media/Instalacion01.png)
-![](media/Instalacion02.png)
-![](media/Instalacion03.png)
+![](media/Instalacion01.png)  
+![](media/Instalacion02.png)  
+![](media/Instalacion03.png)  
 ![](media/Instalacion04.png)
 ![](media/Instalacion05.png)
 ![](media/Instalacion06.png)
@@ -23,17 +32,11 @@
 ![](media/Instalacion20.png)
 ![](media/Instalacion21.png)
 
-
-
-
-
 ## Usuarios
 Root Password: `<456e7R697175654!a6I6J6f417@70656c657461Oa`  
 Azpeleta: `<7f980d383e5J99bd6@cK8ab-72b443da!`   
 Ja1Rin: `<Aa57e27Ie7f562fJ6d@b9386e!260ba3!`  
 Zegameus: `<6f3@Id8647cJ989063e96OOf050da4e2!`
-
-
 
 ## Diseño
 ![](media/Diseno1.png)
@@ -45,8 +48,17 @@ el id del campeonatoy la posicion final de cada atleta
 
 
 ## Conexión
-![](media/Conexion1.png)
-![](media/Conexion2.png)
+![](media/Conexion1.png)  
+El primer paso para conectar con MySQL en DataGrip, hay que clicar sobre el más que se ubica en la sección
+de Database Explorer, en el desplegable que se nos muestra, nos dirigimos al submenú `Data Source` y ahí buscamos `MySQL`.  
+![](media/Conexion2.png)  
+En la pestaña que se nos presenta al clicar, rellenaremos los campos `Name` con un nombre descriptivo
+para identificar la conexión (por ejemplo tener una conexión para el usuario `root` y otra para nuestro usuario personal).
+Luego en `Host` ponemos la dirección del servidor de MySQL, en nuestro caso al instalarlo en nuestra máquina, la dirección es el `localhost`.
+El puerto lo dejamos como viene (por defecto). En cuanto al usuario usaremos uno de los que hemos configurado en la instalación y su respectiva contraseña.
+
+Luego usaremos `Test Connection` para comprobar la conexión, cuando nos salga el cuadro superior como `Succeeded` clicamos sobre OK.
+
 ## Conclusiones
 
 
