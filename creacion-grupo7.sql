@@ -3,7 +3,7 @@
 CREATE DATABASE Triatlon; #Crear la base de datos de Triatlon (Con el usuario Root)
 GRANT ALL PRIVILEGES ON triatlon.* TO Zegameus; -- Dar permisos al usuario Zegameus en la base de datos del Triatlon
 GRANT ALL PRIVILEGES ON triatlon.* TO Ja1Rin;
-
+GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 
 
@@ -66,6 +66,20 @@ CREATE TABLE Resultados(
     tiempo_bici time,
     tiempo_carrera time,
     constraint resultados_pk PRIMARY KEY (id_campeonato,id_programa,id_atleta)
+);
+CREATE TABLE Entrenadores_atleta(
+    Id_atleta smallint(5) unsigned,
+    Entrenador varchar(25),
+    CONSTRAINT Entrenadores_atleta_pk PRIMARY KEY Atletas(Id_atleta)
+
+);
+CREATE TABLE jurado(
+    id_campeonato smallint(5) unsigned,
+    id_programa smallint(5) unsigned,
+    jurado      varchar(25),
+    Cod_Pais    char(3),
+    CONSTRAINT jurado_pk PRIMARY KEY (id_campeonato,id_programa,jurado),
+    CONSTRAINT jurado_fk1 FOREIGN KEY (id_campeonato,id_programa) REFERENCES Programa(Id_Campeonato,id_programa)
 );
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
