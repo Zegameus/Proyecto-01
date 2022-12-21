@@ -30,4 +30,8 @@ CREATE TABLE Campeonatos(
     CONSTRAINT campeonatos_pk PRIMARY KEY (id_campeonato),
     CONSTRAINT campeonatos_fk1 FOREIGN KEY (país) REFERENCES Paises(cod_pais)
 );
-#CREATE TABLE Resultados();
+CREATE TABLE Resultados(
+    id_campeonato smallint(255),
+    id_atleta smallint(255),
+    posicion_final 
+);
