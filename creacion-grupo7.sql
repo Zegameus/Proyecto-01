@@ -64,6 +64,5 @@ CREATE TABLE Resultados(
     tiempo_carrera time,
     constraint resultados_pk PRIMARY KEY (id_campeonato,id_programa,id_atleta)
 );
-GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
