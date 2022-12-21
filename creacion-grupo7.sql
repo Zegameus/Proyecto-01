@@ -48,7 +48,7 @@ create table Programa (
     Id_Campeonato smallint(5) unsigned,
     Id_Programa smallint(5) unsigned,
     Technical_delegates varchar(40),
-    Refree varchar(20),
+    Refree varchar(20), #arbitro
     Distancia_Natacion smallint(40) unsigned,
     Distancia_Bicicleta smallint(40) unsigned,
     Distancia_Carrera smallint(40) unsigned,
