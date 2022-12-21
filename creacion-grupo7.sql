@@ -41,10 +41,29 @@ CREATE TABLE Campeonatos(
     CONSTRAINT campeonatos_pk PRIMARY KEY (id_campeonato),
     CONSTRAINT campeonatos_fk1 FOREIGN KEY (pais) REFERENCES Paises(cod_pais)
 );
+create table Programa (
+    Id_Campeonato smallint(5) unsigned,
+    Id_Programa smallint(5) unsigned,
+    Technical_delegates varchar(40),
+    Refree varchar(20),
+    Distancia_Natacion smallint(40) unsigned,
+    Distancia_Bicicleta smallint(40) unsigned,
+    Distancia_Carrera smallint(40) unsigned,
+    Temp_Aire tinyint(2) unsigned,
+    Temp_Agua tinyint(2) unsigned,
+    constraint programa_pk PRIMARY KEY (Id_Campeonato,Id_Programa)
+);
+
 CREATE TABLE Resultados(
     id_campeonato smallint(5) unsigned,
+    id_programa smallint(5) unsigned,
     id_atleta smallint(5) unsigned,
-    posicion_final
+    posicion_final bit(2),
+    tiempo_natacion time,
+    tiempo_bici time,
+    tiempo_carrera time,
+    constraint resultados_pk PRIMARY KEY (id_campeonato,id_programa,id_atleta)
 );
+GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
