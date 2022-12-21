@@ -54,7 +54,8 @@ create table Programa (
     Distancia_Carrera smallint(40) unsigned,
     Temp_Aire tinyint(2) unsigned,
     Temp_Agua tinyint(2) unsigned,
-    constraint programa_pk PRIMARY KEY (Id_Campeonato,Id_Programa)
+    constraint programa_pk PRIMARY KEY (Id_Campeonato,Id_Programa),
+    constraint programa_fk1 FOREIGN KEY (Id_Campeonato) REFERENCES Campeonatos(id_campeonato)
 );
 
 CREATE TABLE Resultados(
@@ -65,13 +66,15 @@ CREATE TABLE Resultados(
     tiempo_natacion time,
     tiempo_bici time,
     tiempo_carrera time,
-    constraint resultados_pk PRIMARY KEY (id_campeonato,id_programa,id_atleta)
+    constraint resultados_pk PRIMARY KEY (id_campeonato,id_programa,id_atleta),
+    constraint resultados_fk1 FOREIGN KEY (id_atleta) REFERENCES Atletas(Id_atleta),
+    constraint resultados_fk2 FOREIGN KEY (id_campeonato) REFERENCES Programa(Id_Campeonato)
 );
 CREATE TABLE Entrenadores_atleta(
     Id_atleta smallint(5) unsigned,
     Entrenador varchar(25),
-    CONSTRAINT Entrenadores_atleta_pk PRIMARY KEY Atletas(Id_atleta)
-
+    CONSTRAINT Entrenadores_atleta_pk PRIMARY KEY Atletas(Id_atleta),
+    constraint entrenadores_atleta_fk1 FOREIGN KEY (Id_atleta) REFERENCES Atletas(Id_atleta)
 );
 CREATE TABLE jurado(
     id_campeonato smallint(5) unsigned,
