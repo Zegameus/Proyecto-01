@@ -52,10 +52,11 @@ create table Programa (
     Distancia_Natacion smallint(40) unsigned,
     Distancia_Bicicleta smallint(40) unsigned,
     Distancia_Carrera smallint(40) unsigned,
-    Temp_Aire tinyint(2) unsigned,
+    Temp_Aire tinyint(2) unsigned,#en grados centigrados
     Temp_Agua tinyint(2) unsigned,
     constraint programa_pk PRIMARY KEY (Id_Campeonato,Id_Programa),
     constraint programa_fk1 FOREIGN KEY (Id_Campeonato) REFERENCES Campeonatos(id_campeonato)
+
 );
 
 CREATE TABLE Resultados(
