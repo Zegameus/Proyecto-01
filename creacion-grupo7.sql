@@ -3,6 +3,7 @@
 CREATE DATABASE Triatlon; #Crear la base de datos de Triatlon (Con el usuario Root)
 GRANT ALL PRIVILEGES ON triatlon.* TO Zegameus; -- Dar permisos al usuario Zegameus en la base de datos del Triatlon
 GRANT ALL PRIVILEGES ON triatlon.* TO Ja1Rin;
+GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 -- con un usario que no sea root
 CREATE TABLE Paises (
@@ -38,6 +39,6 @@ CREATE TABLE Resultados(
     id_atleta smallint(255),
     posicion_final
 );
-
+GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 SHOW FULL TABLES FROM Triatlon;
