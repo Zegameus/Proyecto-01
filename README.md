@@ -44,13 +44,14 @@ La primera tabla consiste en describir a los atletas, para ello hemos puesto que
 pais... Para la proxima creamos una tabla de paises para cada unos de los atletas.
 Una tabla de campeonatos con el id de cada uno, el año de celebracion, su continente y pais.
 Y por ultimo una de resultados con todas las marcas de cada una de las actividades, el id del atleta en concreto,
-el id del campeonatoy la posicion final de cada atleta 
+el id del campeonato y la posicion final de cada atleta 
 
 
 ## Conexión
 ![](media/Conexion1.png)  
 El primer paso para conectar con MySQL en DataGrip, hay que clicar sobre el más que se ubica en la sección
 de Database Explorer, en el desplegable que se nos muestra, nos dirigimos al submenú `Data Source` y ahí buscamos `MySQL`.  
+
 ![](media/Conexion2.png)  
 En la pestaña que se nos presenta al clicar, rellenaremos los campos `Name` con un nombre descriptivo
 para identificar la conexión (por ejemplo tener una conexión para el usuario `root` y otra para nuestro usuario personal).
