@@ -1,7 +1,10 @@
 # Authors: Azpeleta, David; García, Enrique; Obispo, Jairo
 
-CREATE DATABASE Triatlon; #Crear la base de datos de Triatlon
+CREATE DATABASE Triatlon; #Crear la base de datos de Triatlon (Con el usuario Root)
+GRANT ALL PRIVILEGES ON triatlon.* TO Zegameus; -- Dar permisos al usuario Zegameus en la base de datos del Triatlon
 
+
+-- con un usario que no sea root
 CREATE TABLE Paises (
     Cod_pais CHAR(3),
     Nombre VARCHAR(20) not null,
