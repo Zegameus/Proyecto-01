@@ -1,36 +1,67 @@
 # Proyecto 01 - Grupo 07
 
 ### Indice
-[Instalación](#instalación)  
-[Usuarios](#usuarios)  
-[Diseño](#diseño)  
-[Conexión](#conexión)  
-[Conclusión](#conclusiones)  
-[Integrantes](#integrantes)  
+* [Instalación](#instalación)  
+* [Usuarios](#usuarios)  
+* [Diseño](#diseño)  
+* [Conexión](#conexión)  
+* [Conclusión](#conclusiones)  
+* [Integrantes](#integrantes)  
 
 ## Instalación
     
 ![](media/Instalacion01.png)  
+Preparación de la instalación  
 ![](media/Instalacion02.png)  
+Actualizar el instalador a la última versión.  
 ![](media/Instalacion03.png)  
+Selección de la versión a instalar. En nuestr caso hamos elegido la primera, que viene con todas las herramientas
 ![](media/Instalacion04.png)
+Nos muestra que paquetes se van a instalar.  
 ![](media/Instalacion05.png)
+Proceso de instalación.
+
 ![](media/Instalacion06.png)
+Inicio de la configuración.
 ![](media/Instalacion07.png)
+Configuración de internet.
 ![](media/Instalacion08.png)
+Configuración de la autentificación.
 ![](media/Instalacion09.png)
+Crear cuentas y asignar contraseña al usuario root
 ![](media/Instalacion10.png)
+Configurar el servicio de Windows del servidor de MySQL
 ![](media/Instalacion11.png)
+Otorgar permisos al usuario que ejecuta el servidor de MySQL
+
 ![](media/Instalacion12.png)
+Elegir ubicación donde se guardarán todos los registros del servidor de MySQL
 ![](media/Instalacion13.png)
+Seleccionar si queremos que los nombres de las tablas sean senibles a las mayusulas y minúsculas. En nuestro caso hacemos que todas se guarden en minúsculas para evitar problemas
+
 ![](media/Instalacion14.png)
+Aplicar confiugraciones definidas
+
 ![](media/Instalacion15.png)
+Progreso de la aplicación de las configuraciones.
+
 ![](media/Instalacion16.png)
+Configuración de aplicaciones secundarias de MySQL.
+
 ![](media/Instalacion17.png)
+Respecto a MySQL Router no tocamos nada ya que todo se ejecutará en local y no necesitamos intermediarios.
+
 ![](media/Instalacion18.png)
+Test de conexión, usamos la contraseña de root que predefinimos antes.
+
 ![](media/Instalacion19.png)
+Aplicamos la configuración.
+
 ![](media/Instalacion20.png)
+Progreso de la aplicación de configuración.
+
 ![](media/Instalacion21.png)
+Instalación terminada con éxito.
 
 ## Usuarios
 Root Password: `<456e7R697175654!a6I6J6f417@70656c657461Oa`  
@@ -75,8 +106,17 @@ de ORACLE. Además, había que crear una base de datos para poder crear tablas.
 
 Tuvimos también problemas con las restricciones, ya que estas funcionan de forma distinta a las de ORACLE.
 Por ejemplo, en la tabla países, al insertar datos, se nos olvidó en una ocasión poner un valor a la entrada 
-(`Insert into paises values('','');`), lo cual no nos debería de haber permitido introducirlo.
-Para solucionarlo, usamos checks(cod_pais!='').
+(
+```MySQL
+Insert into paises values('','');
+```
+),
+lo cual no nos debería de haber permitido introducirlo.
+Para solucionarlo, usamos 
+```MySQL
+constraint paises_ck1 check (cod_pais != '' AND nombre != '')
+```
+
 Para finalizar, nos hemos dado cuenta de que MySQL funciona de una forma completamente diferente a ORACLE,
 sobre todo en el tema de restricciones.
 
