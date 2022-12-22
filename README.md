@@ -61,6 +61,22 @@ El puerto lo dejamos como viene (por defecto). En cuanto al usuario usaremos uno
 Luego usaremos `Test Connection` para comprobar la conexión, cuando nos salga el cuadro superior como `Succeeded` clicamos sobre OK.
 
 ## Conclusiones
+En primer lugar, para concluir, tuvimos un problema con la instalación de MySQL
+el cual no nos dejaba establecer conexión con la base de datos, porque había
+que activar una opción en el panel de control, región, administrativo, configuración regional:
+versión beta de UTF-8.  
+En segundo lugar, cabe destacar la labor de búsqueda de los tipos de datos de MySQL, que son diferente a los
+de ORACLE. Además, había que crear una base de datos para poder crear tablas.
+
+Tuvimos también problemas con las restricciones, ya que estas funcionan de forma distinta a las de ORACLE.
+Por ejemplo, en la tabla países, al insertar datos, se nos olvidó en una ocasión poner un valor a la entrada 
+(`Insert into paises values('','');`), lo cual no nos debería de haber permitido introducirlo.
+Para solucionarlo, usamos checks(cod_pais!='').
+Para finalizar, nos hemos dado cuenta de que MySQL funciona de una forma completamente diferente a ORACLE,
+sobre todo en el tema de restricciones.
+
+
+
 
 
 ### Integrantes
