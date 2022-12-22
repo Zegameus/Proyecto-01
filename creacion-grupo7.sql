@@ -8,9 +8,10 @@ GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 -- con un usario que no sea root
 CREATE TABLE Paises (
     Cod_Pais CHAR(3), #ESP,GER,GBR
-    Nombre VARCHAR(20) not null,
+    Nombre VARCHAR(30) not null,
     constraint paises_pk PRIMARY KEY (Cod_Pais),
-    constraint paises_uk1 unique (Nombre) #Combinado con el not null, se convierte en
+    constraint paises_uk1 unique (Nombre),#Combinado con el not null, se convierte en
+    constraint paises_ck1 check ( Cod_Pais != '' AND Nombre != '' )
 );
 
 CREATE TABLE Atletas (
@@ -88,3 +89,4 @@ CREATE TABLE jurado(
 );
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
+-- drop table jurado,entrenadores_atleta,resultados,programa,campeonatos,atletas,paises;
