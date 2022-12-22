@@ -40,11 +40,16 @@ Zegameus: `<6f3@Id8647cJ989063e96OOf050da4e2!`
 
 ## Diseño
 ![](media/Diseno1.png)
-La primera tabla consiste en describir a los atletas, para ello hemos puesto que tiene un codigo,nombre,apellido
-pais... Para la proxima creamos una tabla de paises para cada unos de los atletas.
-Una tabla de campeonatos con el id de cada uno, el año de celebracion, su continente y pais.
-Y por ultimo una de resultados con todas las marcas de cada una de las actividades, el id del atleta en concreto,
-el id del campeonato y la posicion final de cada atleta 
+La primera tabla consiste en almacenar los paises con su codigo de pais como la clave principal de la tabla 
+y el nombre de dicho pais. En la de atletas hemos recogido bastante informacion a cerca de el, indicandole su nombre, id (clave principal),
+y muchas más cosas que vemos en el diseño. La de campeonatos indicamos su id (clave principal), año de celebracion, categoria, contienente y como clave 
+externa el codigo de pais. En próximo lugar, insertamos la de entrenadores de los atletas, algunos de los atletas no 
+disponen de entrenador y otros si, por lo cual la pusimos con el id del atleta indicado y el nombre de dicho entrenador. Luego por supuesto pondriamos
+un jurado de competicion donde su clave principal es el id del campeonato y del programa y su nombre de jurado, añadiendo a parte como clave 
+externa el codigo de pais. Ya casi finalizando vamos a hablar de la tabla programa donde ponemos cosas basicas como id del campeonato y programa, pero otras
+cosas bastante concretas en cuanto a cada uno de los deportes. Finalmente la ultima tabla que describiremos es la de resultados, donde se pone como clave principal
+el id de campeonato, programa y atleta, las dos primeras actúan también como clave externa, y además ponemos también los tiempos de cada atleta en cada deporte y 
+su posición final en la competición.
 
 
 ## Conexión
