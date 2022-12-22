@@ -30,7 +30,7 @@ CREATE TABLE Atletas (
     Instagram VARCHAR(30),
     Facebook VARCHAR(30),
     constraint atletas_pk primary key (Id_atleta),
-    constraint atletas_fk1 foreign key (Cod_Pais) references Paises(Cod_Pais) on delete set null ,
+    constraint atletas_fk1 foreign key (Cod_Pais) references Paises(Cod_Pais) on delete cascade ,
     constraint atletas_uk1 unique (World_ranking), #Solo una persona puede estar en un puesto concreto
     constraint atletas_uk2 unique (Continental_ranking) #Lo mismo que pasa con el anterior
 );
@@ -40,7 +40,7 @@ CREATE TABLE Campeonatos(
     continente VARCHAR(8) NOT NULL,
     pais       CHAR(3),
     CONSTRAINT campeonatos_pk PRIMARY KEY (id_campeonato),
-    CONSTRAINT campeonatos_fk1 FOREIGN KEY (pais) REFERENCES Paises(cod_pais) on delete set null
+    CONSTRAINT campeonatos_fk1 FOREIGN KEY (pais) REFERENCES Paises(cod_pais) on delete cascade
 );
 #Procedemos con los diferentes programas que tiene un campeonato, la sección femenina/masculina de elite, jovenes, U15...
 create table Programa (
