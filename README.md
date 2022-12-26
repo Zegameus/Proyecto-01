@@ -15,7 +15,7 @@ Preparación de la instalación
 ![](media/Instalacion02.png)  
 Actualizar el instalador a la última versión.  
 ![](media/Instalacion03.png)  
-Selección de la versión a instalar. En nuestr caso hamos elegido la primera, que viene con todas las herramientas
+Selección de la versión a instalar. En nuestro caso hemos elegido la primera, que viene con todas las herramientas
 ![](media/Instalacion04.png)
 Nos muestra que paquetes se van a instalar.  
 ![](media/Instalacion05.png)
