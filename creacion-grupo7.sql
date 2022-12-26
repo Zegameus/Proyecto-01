@@ -43,6 +43,22 @@ CREATE TABLE Atletas (
     CONSTRAINT atletas_FK1 FOREIGN KEY (Cod_Pais) REFERENCES Paises(Cod_Pais) ON DELETE CASCADE ,
     CONSTRAINT atletas_CK1 CHECK ( Nombre != '' AND Apellido != '' ) -- Esto es para evitar introducir datos vacios
 );
+CREATE TABLE WT_Ranking (
+    Posicion DECIMAL(4),
+    Id_atleta DECIMAL(4),
+    Cambios DECIMAL(2) default 0 not null ,
+    Pts_Total DECIMAL(6,2)  unsigned not null default 0,
+    Evt_ACT DECIMAL(1) unsigned default 0 not null ,
+    Pts_Act DECIMAL(4) unsigned not null default 0,
+    Evt_PREV DECIMAL(1) unsigned default 0 not null ,
+    Pts_Prev DECIMAL(4) unsigned not null default 0,
+    constraint wt_ranking_pk primary key (Posicion),
+    constraint wt_ranking_fk1 foreign key (Id_atleta) references Atletas(Id_atleta),
+    constraint wt_ranking_ck1 check ( evt_act <= 6 ),
+    constraint wt_ranking_ck2 check ( evt_prev <= 6 )
+);
+
+
 CREATE TABLE Campeonatos(
     id_campeonato DECIMAL(4) UNSIGNED,
     anno YEAR NOT NULL,
@@ -59,10 +75,10 @@ create table Programa (
     Technical_delegates VARCHAR(40),
     Refree VARCHAR(20), #árbitro
     Distancia_Natacion DECIMAL(4) UNSIGNED,
-    Distancia_Bicicleta DECIMAL(2) UNSIGNED,
-    Distancia_Carrera DECIMAL(2,1) UNSIGNED,
-    Temp_Aire DECIMAL(3,2) UNSIGNED,#En grados centigrados de 0 a 99º
-    Temp_Agua DECIMAL(3,2) UNSIGNED,
+    Distancia_Bicicleta DECIMAL(4,2) UNSIGNED,
+    Distancia_Carrera DECIMAL(4,2) UNSIGNED,
+    Temp_Aire DECIMAL(3,1) UNSIGNED,#En grados centigrados de 0 a 99º
+    Temp_Agua DECIMAL(3,1) UNSIGNED,
     CONSTRAINT programa_PK PRIMARY KEY (Id_Campeonato,Id_Programa),
     CONSTRAINT programa_FK1 FOREIGN KEY (Id_Campeonato) REFERENCES Campeonatos(id_campeonato) ON DELETE CASCADE
 
