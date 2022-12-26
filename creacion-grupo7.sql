@@ -43,21 +43,37 @@ CREATE TABLE Atletas (
     CONSTRAINT atletas_FK1 FOREIGN KEY (Cod_Pais) REFERENCES Paises(Cod_Pais) ON DELETE CASCADE ,
     CONSTRAINT atletas_CK1 CHECK ( Nombre != '' AND Apellido != '' ) -- Esto es para evitar introducir datos vacios
 );
-CREATE TABLE WT_Ranking (
+CREATE TABLE WT_Ranking ( -- Ranking mundial
     Posicion DECIMAL(4),
     Id_atleta DECIMAL(4),
-    Cambios DECIMAL(2) default 0 not null ,
-    Pts_Total DECIMAL(6,2)  unsigned not null default 0,
-    Evt_ACT DECIMAL(1) unsigned default 0 not null ,
-    Pts_Act DECIMAL(4) unsigned not null default 0,
-    Evt_PREV DECIMAL(1) unsigned default 0 not null ,
-    Pts_Prev DECIMAL(4) unsigned not null default 0,
-    constraint wt_ranking_pk primary key (Posicion),
-    constraint wt_ranking_fk1 foreign key (Id_atleta) references Atletas(Id_atleta),
-    constraint wt_ranking_ck1 check ( evt_act <= 6 ),
-    constraint wt_ranking_ck2 check ( evt_prev <= 6 )
+    Cambios DECIMAL(2) DEFAULT 0 NOT NULL ,
+    Pts_Total DECIMAL(6,2)  UNSIGNED NOT NULL DEFAULT 0,
+    Evt_ACT DECIMAL(1) UNSIGNED DEFAULT 0 NOT NULL ,
+    Pts_Act DECIMAL(4) UNSIGNED NOT NULL DEFAULT 0,
+    Evt_PREV DECIMAL(1) UNSIGNED DEFAULT 0 NOT NULL ,
+    Pts_Prev DECIMAL(4) UNSIGNED NOT NULL DEFAULT 0,
+    CONSTRAINT wt_ranking_pk PRIMARY KEY (Posicion),
+    CONSTRAINT wt_ranking_fk1 FOREIGN KEY (Id_atleta) REFERENCES Atletas(Id_atleta),
+    CONSTRAINT wt_ranking_ck1 CHECK ( evt_act <= 6 ),
+    CONSTRAINT wt_ranking_ck2 CHECK ( evt_prev <= 6 )
 );
 
+CREATE TABLE WTC_Ranking( -- Ranking por continentes
+    Posicion DECIMAL (3),
+    ID_Cont DECIMAL (1),
+    ID_Atleta DECIMAL (4),
+    Cambios DECIMAL (2) DEFAULT 0 NOT NULL ,
+    Pts_Total DECIMAL (6,2) UNSIGNED DEFAULT 0 NOT NULL ,
+    EVT_ACT DECIMAL (1) UNSIGNED DEFAULT 0 NOT NULL,
+    Pts_ACT DECIMAL (4) UNSIGNED DEFAULT 0 NOT NULL,
+    EVT_PREV DECIMAL (1) UNSIGNED DEFAULT 0 NOT NULL,
+    Pts_PREV DECIMAL  (4) UNSIGNED DEFAULT 0 NOT NULL,
+    CONSTRAINT wtc_ranking_pk PRIMARY KEY (Posicion),
+    CONSTRAINT wtc_ranking_ck1 CHECK ( EVT_ACT <= 6 ),
+    CONSTRAINT wtc_ranking_ck2 CHECK ( EVT_PREV <= 6 ),
+    CONSTRAINT wtc_ranking_fk1 FOREIGN KEY (ID_Cont) REFERENCES Continentes(ID_cont),
+    CONSTRAINT wtc_ranking_fk2 FOREIGN KEY (ID_Atleta) REFERENCES Atletas(Id_atleta)
+);
 
 CREATE TABLE Campeonatos(
     id_campeonato DECIMAL(4) UNSIGNED,

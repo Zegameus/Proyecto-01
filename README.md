@@ -71,14 +71,23 @@ Zegameus: `<6f3@Id8647cJ989063e96OOf050da4e2!`
 
 ## Diseño
 ![](media/Diseno1.png)
-La primera tabla consiste en almacenar los paises con su codigo de pais como la clave principal de la tabla 
-y el nombre de dicho pais. En la de atletas hemos recogido bastante informacion a cerca de el, indicandole su nombre, id (clave principal),
-y muchas más cosas que vemos en el diseño. La de campeonatos indicamos su id (clave principal), año de celebracion, categoria, contienente y como clave 
-externa el codigo de pais. En próximo lugar, insertamos la de entrenadores de los atletas, algunos de los atletas no 
-disponen de entrenador y otros si, por lo cual la pusimos con el id del atleta indicado y el nombre de dicho entrenador. Luego por supuesto pondriamos
-un jurado de competicion donde su clave principal es el id del campeonato y del programa y su nombre de jurado, añadiendo a parte como clave 
-externa el codigo de pais. Ya casi finalizando vamos a hablar de la tabla programa donde ponemos cosas basicas como id del campeonato y programa, pero otras
-cosas bastante concretas en cuanto a cada uno de los deportes. Finalmente la ultima tabla que describiremos es la de resultados, donde se pone como clave principal
+En primer lugar necesitamos dos tablas base, una para los continentes, y otra para los países, la cual depende de la primera (continentes).  
+En la tabla países se almacenan los países con su código de pais como la clave principal de la tabla (ESP) y el nombre de dicho pais.  
+
+En la de atletas hemos recogido bastante información a cerca de el, indicandole su nombre, id (clave principal),
+y muchas más cosas que vemos en el diseño. Esta tabla esta relacionada con otras dos, que pueden o no, tener información. Una es para los entrenadores y otra para los sponsors.
+
+La de campeonatos indicamos su id (clave principal), año de celebracion, contienente y el codigo de pais; estas dos últimas son una referencia a la tabla continentes y a paises. 
+Tenemos dos tablas para la representación de los rankings mundial y por continente. En ella se especifican la posición, el atleta, los cambios de posición (si ha subido de posición o se mantiene o baja); los puntos totales del atleta,
+así como los eventos en los que ha participado en el útlimo año (52 semanas), pudiendo este participar en un máximo de 6; y otro para los participados el año anterior (también 6).  
+
+Luego por supuesto pondriamos un jurado de competicion donde su clave principal es el id del campeonato y del programa y su nombre de jurado, añadiendo a parte como clave 
+externa el codigo de pais (del jurado). 
+
+Ya casi finalizando vamos a hablar de la tabla programa donde ponemos cosas básicas como id del campeonato y programa, pero otras
+cosas bastante concretas en cuanto a cada uno de los deportes. 
+
+Finalmente la ultima tabla que describiremos es la de resultados, donde se pone como clave principal
 el id de campeonato, programa y atleta, las dos primeras actúan también como clave externa, y además ponemos también los tiempos de cada atleta en cada deporte y 
 su posición final en la competición.
 
