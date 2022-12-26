@@ -7,9 +7,18 @@ GRANT ALL PRIVILEGES ON triatlon.* TO Ja1Rin;
 GRANT ALL PRIVILEGES ON triatlon.* TO Azpeleta;
 
 -- con un usario que no sea root
+CREATE TABLE Continentes (
+    ID_cont DECIMAL(1),
+    Nombre varchar(8) NOT NULL ,
+    CONSTRAINT cont_pk PRIMARY KEY (ID_cont),
+    CONSTRAINT cont_uk1 UNIQUE (Nombre)
+);
+
 CREATE TABLE Paises (
     Cod_Pais CHAR(3), #ESP,GER,GBR
     Nombre VARCHAR(30) NOT NULL,
+    ID_cont DECIMAL(1),
+    CONSTRAINT paises_FK1 FOREIGN KEY (ID_cont) REFERENCES Continentes(ID_cont),
     CONSTRAINT paises_PK PRIMARY KEY (Cod_Pais),
     CONSTRAINT paises_UK1 UNIQUE (Nombre),#Combinado con el NOT NULL, se convierte en
     CONSTRAINT paises_CK1 CHECK ( Cod_Pais != '' AND Nombre != '' )
@@ -18,12 +27,11 @@ CREATE TABLE Paises (
 CREATE TABLE Atletas (
     Id_atleta SMALLINT(5) UNSIGNED,
     Nombre VARCHAR(30) NOT NULL,
+    Segundo_Nombre varchar(30),
     Apellido VARCHAR(30) NOT NULL,
     Cod_Pais CHAR(3) NOT NULL,
     Anno_nacimiento YEAR NOT NULL,
     Entrenador VARCHAR(25), #Hay atletas que no tienen un entrenador (o por lo menos no de forma pública)
-    World_ranking SMALLINT(5) UNSIGNED,
-    Continental_ranking SMALLINT(5) UNSIGNED,
     Foto BLOB,
     Biografia LONGTEXT, # Hay atletas que no han dado una biografía
     N_Veces_Podio SMALLINT(3) UNSIGNED DEFAULT 0 NOT NULL, #Hay atletas que no han estado en el podio
@@ -33,18 +41,16 @@ CREATE TABLE Atletas (
     Facebook VARCHAR(30),
     CONSTRAINT atletas_PK PRIMARY KEY (Id_atleta),
     CONSTRAINT atletas_FK1 FOREIGN KEY (Cod_Pais) REFERENCES Paises(Cod_Pais) ON DELETE CASCADE ,
-    CONSTRAINT atletas_UK1 UNIQUE (World_ranking), -- Solo una persona puede estar en un puesto concreto
-    CONSTRAINT atletas_UK2 UNIQUE (Continental_ranking), -- Lo mismo que pasa con el anterior
     CONSTRAINT atletas_CK1 CHECK ( Nombre != '' AND Apellido != '' ) -- Esto es para evitar introducir datos vacios
 );
 CREATE TABLE Campeonatos(
     id_campeonato SMALLINT(5) UNSIGNED,
     anno YEAR NOT NULL,
-    continente VARCHAR(8) NOT NULL,
+    ID_cont DECIMAL(1) NOT NULL,
     pais       CHAR(3),
     CONSTRAINT campeonatos_PK PRIMARY KEY (id_campeonato),
     CONSTRAINT campeonatos_FK1 FOREIGN KEY (pais) REFERENCES Paises(cod_pais) ON DELETE CASCADE,
-    CONSTRAINT campeonatos_CK1 CHECK ( continente != '' )
+    CONSTRAINT campeonatos_FK2 FOREIGN KEY (ID_cont) REFERENCES Continentes(ID_cont)
 );
 #Procedemos con los diferentes programas que tiene un campeonato, la sección femenina/masculina de elite, jovenes, U15...
 create table Programa (
@@ -93,4 +99,4 @@ CREATE TABLE jurado(
 );
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
--- drop table jurado,entrenadores_atleta,resultados,programa,campeonatos,atletas,paises;
+-- drop table jurado,entrenadores_atleta,resultados,programa,campeonatos,atletas,paises,continentes;
