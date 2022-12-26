@@ -97,6 +97,12 @@ CREATE TABLE jurado(
     CONSTRAINT jurado_PK PRIMARY KEY (id_campeonato,id_programa,jurado),
     CONSTRAINT jurado_FK1 FOREIGN KEY (id_campeonato,id_programa) REFERENCES Programa(Id_Campeonato,id_programa) ON DELETE CASCADE
 );
+CREATE TABLE sponsors(
+    id_atleta DECIMAL(4) UNSIGNED,
+    sponsor   VARCHAR(50),
+    CONSTRAINT sponsors_pk PRIMARY KEY (id_atleta,sponsor),
+    CONSTRAINT sponsors_fk1 FOREIGN KEY (id_atleta) REFERENCES Atletas(Id_atleta)
+);
 
 SHOW FULL TABLES FROM Triatlon; -- Ver tablas creadas
 -- drop table jurado,entrenadores_atleta,resultados,programa,campeonatos,atletas,paises,continentes;
