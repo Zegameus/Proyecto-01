@@ -70,8 +70,8 @@ create table Programa (
 
 CREATE TABLE Resultados(
     id_campeonato DECIMAL(4) UNSIGNED,
-    id_programa DECIMAL(5) UNSIGNED,
-    id_atleta DECIMAL(5) UNSIGNED,
+    id_programa DECIMAL(4) UNSIGNED,
+    id_atleta DECIMAL(4) UNSIGNED,
     posicion_final CHAR(3), #Puede ser un numero o DNF (no ha terminado), DNS (No empezó), DSQ (Descalificado)...
     tiempo_natacion TIME,
     tiempo_bici TIME,
@@ -83,7 +83,7 @@ CREATE TABLE Resultados(
 );
 
 CREATE TABLE Entrenadores_atleta(
-    Id_atleta DECIMAL(5) UNSIGNED,
+    Id_atleta DECIMAL(4) UNSIGNED,
     Entrenador VARCHAR(30),
     CONSTRAINT Entrenadores_atleta_PK PRIMARY KEY (Id_atleta,Entrenador),
     CONSTRAINT entrenadores_atleta_FK1 FOREIGN KEY (Id_atleta) REFERENCES Atletas(Id_atleta) ON DELETE CASCADE
@@ -91,7 +91,7 @@ CREATE TABLE Entrenadores_atleta(
 
 CREATE TABLE jurado(
     id_campeonato DECIMAL(4) UNSIGNED,
-    id_programa DECIMAL(5) UNSIGNED,
+    id_programa DECIMAL(4) UNSIGNED,
     jurado      VARCHAR(25),
     Cod_Pais    CHAR(3),
     CONSTRAINT jurado_PK PRIMARY KEY (id_campeonato,id_programa,jurado),
