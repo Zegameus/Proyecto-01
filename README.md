@@ -16,51 +16,51 @@ Preparación de la instalación
 Actualizar el instalador a la última versión.  
 ![](media/Instalacion03.png)  
 Selección de la versión a instalar. En nuestro caso hemos elegido la primera, que viene con todas las herramientas
-![](media/Instalacion04.png)
+![](media/Instalacion04.png)  
 Nos muestra que paquetes se van a instalar.  
-![](media/Instalacion05.png)
+![](media/Instalacion05.png)  
 Proceso de instalación.
 
-![](media/Instalacion06.png)
+![](media/Instalacion06.png)  
 Inicio de la configuración.
-![](media/Instalacion07.png)
+![](media/Instalacion07.png)  
 Configuración de internet.
-![](media/Instalacion08.png)
+![](media/Instalacion08.png)  
 Configuración de la autentificación.
-![](media/Instalacion09.png)
+![](media/Instalacion09.png)  
 Crear cuentas y asignar contraseña al usuario root
-![](media/Instalacion10.png)
+![](media/Instalacion10.png)  
 Configurar el servicio de Windows del servidor de MySQL
-![](media/Instalacion11.png)
+![](media/Instalacion11.png)  
 Otorgar permisos al usuario que ejecuta el servidor de MySQL
 
-![](media/Instalacion12.png)
+![](media/Instalacion12.png)  
 Elegir ubicación donde se guardarán todos los registros del servidor de MySQL
-![](media/Instalacion13.png)
+![](media/Instalacion13.png)  
 Seleccionar si queremos que los nombres de las tablas sean senibles a las mayusulas y minúsculas. En nuestro caso hacemos que todas se guarden en minúsculas para evitar problemas
 
-![](media/Instalacion14.png)
+![](media/Instalacion14.png)  
 Aplicar confiugraciones definidas
 
-![](media/Instalacion15.png)
+![](media/Instalacion15.png)  
 Progreso de la aplicación de las configuraciones.
 
-![](media/Instalacion16.png)
+![](media/Instalacion16.png)  
 Configuración de aplicaciones secundarias de MySQL.
 
-![](media/Instalacion17.png)
+![](media/Instalacion17.png)  
 Respecto a MySQL Router no tocamos nada ya que todo se ejecutará en local y no necesitamos intermediarios.
 
-![](media/Instalacion18.png)
+![](media/Instalacion18.png)  
 Test de conexión, usamos la contraseña de root que predefinimos antes.
 
-![](media/Instalacion19.png)
+![](media/Instalacion19.png)  
 Aplicamos la configuración.
 
-![](media/Instalacion20.png)
+![](media/Instalacion20.png)  
 Progreso de la aplicación de configuración.
 
-![](media/Instalacion21.png)
+![](media/Instalacion21.png)  
 Instalación terminada con éxito.
 
 ## Usuarios
